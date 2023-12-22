@@ -21,12 +21,6 @@ def parse(dirs=[], all_asn=False, single_output=True):
                                 route.attr.asPath.split()[-1]
                                 for route
                                 in entry.body.routeEntries])
-                        prefix = '%s/%d' % (entry.body.prefix, entry.body.prefixLength)
-                        if not all_asn:
-                            list_ASN = set([
-                                route.attr.asPath.split()[-1]
-                                for route
-                                in entry.body.routeEntries])
 
                             for item in list(list_ASN):
                                 routes.append(f'{prefix} AS{item}\n')
